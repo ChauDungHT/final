@@ -1,0 +1,87 @@
+@model final.Models.tblExer
+<main class="main">
+    <div class="page-title dark-background">
+        <div class="container d-lg-flex justify-content-between align-items-center">
+            <h1 class="mb-2 mb-lg-0">Exer Details</h1>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="current">Exer Details</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
+                    <h3 style="font-family: Arial, Helvetica, sans-serif;">@Html.DisplayFor(model => model.ExerName)</h3>
+                    <p>
+                        @Html.DisplayFor(m => m.Contents)
+                    </p>
+                    @* <p>Debug Request: @Model.Request</p> *@
+                    <ul>
+                        @if (!string.IsNullOrWhiteSpace(Model.Request))
+                        {
+                            var requestItems = Model.Request.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)
+                                                            .Select(item => item.Trim())
+                                                            .Where(item => !string.IsNullOrEmpty(item));
+                            if (requestItems.Any())
+                            {
+                                foreach (var requestItem in requestItems)
+                                {
+                                    <li><i class="bi bi-check-circle"></i> <span>@requestItem.</span></li>
+                                }
+                            }
+                            else
+                            {
+                                <li><i class="bi bi-check-circle"></i> <span>No valid requests found.</span></li>
+                            }
+                        }
+                        else
+                        {
+                            <li><i class="bi bi-check-circle"></i> <span>No requests available.</span></li>
+                        }
+                    </ul>
+
+                    <p class="text-success">
+                        Create Date: @Html.DisplayFor(m => m.CreateAt)
+                    </p>
+                    <p class="text-danger">
+                        Deadline : @Html.DisplayFor(m => m.Deadline)
+                    </p>
+                </div>
+
+            </div>
+
+            <hr />
+            <h5>Nộp bài PDF tại đây:</h5>
+            <form asp-controller="Home" asp-action="Upload" asp-route-exerId="@Model.ExerId" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <input type="file" name="pdfFile" class="form-control" accept=".pdf" required />
+                </div>
+                <button type="submit" class="btn btn-success">
+                    <i class="bi bi-upload"></i> Nộp bài
+                </button>
+            </form>
+
+            @if (TempData["UploadSuccess"] != null)
+            {
+                <div class="alert alert-success mt-3">@TempData["UploadSuccess"]</div>
+            }
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger mt-3">Có lỗi xảy ra. Kiểm tra lại file.</div>
+            }
+
+        </div>
+
+    </section>
+
+</main>
