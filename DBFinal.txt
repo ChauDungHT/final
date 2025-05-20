@@ -1,0 +1,71 @@
+-- Tạo database mới
+CREATE DATABASE IF NOT EXISTS FinalDB CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE FinalDB;
+
+-- Bảng người dùng
+CREATE TABLE tblUsers (
+    UserId INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(255),
+    Passwords VARCHAR(255),
+    FullName VARCHAR(255),
+    Email VARCHAR(255),
+    Roles INT,
+    Status INT,
+    CreatedAt DATETIME,
+    Images VARCHAR(255),
+    T1 TEXT,
+    T2 TEXT,
+    T3 TEXT,
+    T4 TEXT,
+    Bgr TEXT
+) ENGINE=InnoDB;
+select * from tblusers
+-- Bảng bài tập
+CREATE TABLE tblExer (
+    ExerId INT PRIMARY KEY AUTO_INCREMENT,
+    ExerName VARCHAR(255),
+    Contents TEXT,
+    IsActive BOOLEAN,
+    CreateAt DATETIME,
+    Deadline DATETIME,
+    Status BOOLEAN,
+    Images VARCHAR(255),
+    Request TEXT
+) ENGINE=InnoDB;
+
+-- Bảng nộp bài
+CREATE TABLE tblEU (
+    EUID INT PRIMARY KEY AUTO_INCREMENT,
+    UID INT,
+    EID INT,
+    FilePath VARCHAR(255) DEFAULT '',
+    Links VARCHAR(255),
+    IsAccepted BOOLEAN,
+    SubmitDate DATETIME,
+    FOREIGN KEY (UID) REFERENCES tblUsers(UserId),
+    FOREIGN KEY (EID) REFERENCES tblExer(ExerId)
+) ENGINE=InnoDB;
+
+-- View tổng hợp bài nộp với tên người dùng và tên bài tập
+CREATE VIEW viewEU AS
+SELECT 
+    eu.EUID,
+    eu.UID,
+    eu.EID,
+    eu.FilePath,
+    eu.Links,
+    eu.IsAccepted,
+    eu.SubmitDate,
+    u.FullName,
+    e.ExerName
+FROM tblEU eu
+JOIN tblUsers u ON eu.UID = u.UserId
+JOIN tblExer e ON eu.EID = e.ExerId;
+
+INSERT INTO tblUsers (UserName, Passwords, FullName, Email, Roles, Status, CreatedAt, Images)
+VALUES
+('admin1', 'admin123', 'Admin One', 'admin1@example.com', 1, 1, NOW(), NULL),
+('user1', 'user123', 'User One', 'user1@example.com', 0, 1, NOW(), NULL),
+('user2', 'user123', 'User Two', 'user2@example.com', 0, 1, NOW(), NULL),
+('user3', 'user123', 'User Three', 'user3@example.com', 0, 1, NOW(), NULL),
+('user4', 'user123', 'User Four', 'user4@example.com', 0, 1, NOW(), NULL);

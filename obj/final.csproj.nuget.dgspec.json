@@ -1,31 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Web Programming\\final\\final.csproj": {}
+    "D:\\Web Programming\\folio\\final.csproj": {}
   },
   "projects": {
-    "D:\\Web Programming\\final\\final.csproj": {
+    "D:\\Web Programming\\folio\\final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Web Programming\\final\\final.csproj",
+        "projectUniqueName": "D:\\Web Programming\\folio\\final.csproj",
         "projectName": "final",
-        "projectPath": "D:\\Web Programming\\final\\final.csproj",
+        "projectPath": "D:\\Web Programming\\folio\\final.csproj",
         "packagesPath": "C:\\Users\\aceri\\.nuget\\packages\\",
-        "outputPath": "D:\\Web Programming\\final\\obj\\",
+        "outputPath": "D:\\Web Programming\\folio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aceri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -42,16 +42,22 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.4, )"
+              "version": "[9.0.0-preview.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0-preview.1, )"
             },
             "SlugGenerator": {
               "target": "Package",
