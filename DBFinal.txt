@@ -69,3 +69,18 @@ VALUES
 ('user2', 'user123', 'User Two', 'user2@example.com', 0, 1, NOW(), NULL),
 ('user3', 'user123', 'User Three', 'user3@example.com', 0, 1, NOW(), NULL),
 ('user4', 'user123', 'User Four', 'user4@example.com', 0, 1, NOW(), NULL);
+
+CREATE TABLE AdminMenu (
+    AdminMenuID BIGINT PRIMARY KEY AUTO_INCREMENT,
+    ItemName VARCHAR(255),
+    ItemLevel INT NOT NULL,
+    ParentLevel INT NOT NULL,
+    ItemOrder INT NOT NULL,
+    IsActive BOOLEAN,
+    AreaName VARCHAR(255),
+    ItemTarget VARCHAR(255),
+    ControllerName VARCHAR(255),
+    ActionName VARCHAR(255),
+    Icon VARCHAR(255),
+    IdName VARCHAR(255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
