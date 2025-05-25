@@ -1,5 +1,5 @@
 @using final.Models
-@model IList<tblUsers>
+@model IList<Users>
 
 <main id="main" class="main">
     <div class="pagetitle">
@@ -28,17 +28,17 @@
                                         @foreach (var item in Model)
                                         {
                                             <tr>
-                                                <td class="text-center" scope="row">@item.UserId</td>
+                                                <td class="text-center" scope="row">@item.UserID</td>
                                                 <td class="text-left text-primary" scope="row"><a asp-area="Admin" asp-controller="Users" asp-action="Details" asp-route-id="@item.UserId">@item.FullName</a></td>
-                                                <td class="text-center" scope="row">@item.UserName</td>
-                                                <td class="text-center" scope="row">@item.CreatedAt</td>
+                                                <td class="text-center" scope="row">@item.Username</td>
+                                                <td class="text-center" scope="row">@item.CreatedDate</td>
                                                 <td class="text-center" scope="row">@item.Email</td>
                                                 <td class="text-center" scope="row">
                                                     @(item.Statuss == 1 ? "Active" : "InActive")
                                                 </td>
                                                 <td class="text-center" scope="row">
-                                                    <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@item.UserId" class="btn btn-primary btn-sm" title="Edit the Userscise"><i class="bi bi-pencil"></i></a>
-                                                    <a asp-area="Admin" asp-controller="Users" asp-action="Delete" asp-route-id="@item.UserId" class="btn btn-danger btn-sm" title="Delete the Userscise"><i class="bi bi-trash"></i></a>
+                                                    <a asp-area="Admin" asp-controller="Users" asp-action="Edit" asp-route-id="@item.UserID" class="btn btn-primary btn-sm" title="Edit the Userscise"><i class="bi bi-pencil"></i></a>
+                                                    <a asp-area="Admin" asp-controller="Users" asp-action="Delete" asp-route-id="@item.UserID" class="btn btn-danger btn-sm" title="Delete the Userscise"><i class="bi bi-trash"></i></a>
                                                 </td>
                                             </tr>
                                         }

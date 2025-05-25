@@ -1,5 +1,5 @@
 @using final.Models
-@model IList<tblUsers>
+@model IList<Users>
 @using final.Utilities
 <section id="about" class="about section">
 
@@ -8,7 +8,7 @@
         <h2>About</h2>
         <p>Your private Information is showing here. You can change by the change button below.</p>
     </div><!-- End Section Title -->
-    @foreach (var uu in Model.Where(m => m.UserId == @Functions._UserId))
+    @foreach (var uu in Model.Where(m => m.UserID == @Functions._UserID))
     {
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <div class="row gy-4 justify-content-center">

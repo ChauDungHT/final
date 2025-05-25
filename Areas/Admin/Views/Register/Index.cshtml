@@ -1,4 +1,4 @@
-@model final.Models.tblUsers;
+@model final.Models.Users;
 @using final.Utilities;
 @{
     Layout = "";
@@ -90,7 +90,7 @@
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text" id="inputGroupPrepend">#</span>
                                                 <input type="text" class="form-control"
-                                                    id="yourUsername" required asp-for="UserName">
+                                                    id="yourUsername" required asp-for="Username">
                                                 <div class="invalid-feedback">Please choose a username.</div>
                                             </div>
                                         </div>
@@ -98,15 +98,15 @@
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>
                                             <input type="password" class="form-control"
-                                                id="yourPassword" required asp-for="Passwords">
+                                                id="yourPassword" required asp-for="Password">
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
 
                                         <div class="form-group d-none">
-                                            <input asp-for="Statuss" class="form-control" value=1/>
+                                            <input asp-for="IsActive" class="form-control" value=1 />
                                         </div>
                                         <div class="form-group d-none">
-                                            <input asp-for="Roles" class="form-control" value=1/>
+                                            <input asp-for="Role" class="form-control" value=1/>
                                         </div>
 
                                         <div class="col-12 text-center text-danger">

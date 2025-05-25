@@ -1,4 +1,4 @@
-@model final.Models.tblUsers
+@model final.Models.Users
 @using final.Utilities
 @{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -10,7 +10,7 @@
     <div class="container shadow p-5">
         <form method="Post" asp-action="Edit">
             <div class="form-row">
-                <input type="hidden" class="form-control" asp-for="UserId">
+                <input type="hidden" class="form-control" asp-for="UserID">
                 <div class="form-group col-md-6 mb-3">
                     <label>User FullName</label>
                     <input type="text" class="form-control" asp-for="FullName" placeholder="FullName...">
@@ -18,11 +18,11 @@
                 </div>
                 <div class="form-group col-md-6 mb-3">
                     <label>UserName</label>
-                    <input type="text" class="form-control" asp-for="UserName">
+                    <input type="text" class="form-control" asp-for="Username">
                 </div>
                 <div class="form-group col-md-6 mb-3">
                     <label>PassWord</label>
-                    <input type="text" class="form-control" asp-for="Passwords">
+                    <input type="text" class="form-control" asp-for="Password">
                 </div>
                 <div class="form-group col-md-6 mb-3">
                     <label>Email</label>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group col-md-6 mb-3">
                     <label>Visiible</label>
-                    <select asp-for="Statuss" class="form-select" id="Statuss">
+                    <select asp-for="IsActive" class="form-select" id="IsActive">
                         <option value=1>Active</option>
                         <option value=0>InActive</option>
                     </select>

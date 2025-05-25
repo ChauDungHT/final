@@ -23,26 +23,26 @@ namespace final.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(tblUsers users)
+        public ActionResult Index(Users users)
         {
             if (users == null)
             {
                 return NotFound();
             }
 
-            if (string.IsNullOrEmpty(users.Passwords))
+            if (string.IsNullOrEmpty(users.Password))
             {
                 Functions._Message = "Mật khẩu không được để trống.";
                 return RedirectToAction("Index", "Register");
             }
-            var check = _context.Userss.Where(u => (u.UserName == users.UserName)).FirstOrDefault();
+            var check = _context.Userss.Where(u => (u.Username == users.Username)).FirstOrDefault();
             if (check != null)
             {
                 Functions._Message = "UserName already exists.";
                 return RedirectToAction("Index", "Register");
             }
             Functions._Message = string.Empty;
-            users.Passwords = Functions.MD5Password(users.Passwords);
+            users.Password = Functions.MD5Password(users.Password);
             _context.Userss.Add(users);
             _context.SaveChanges();
             return RedirectToAction("Index","Login");

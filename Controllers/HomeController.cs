@@ -39,12 +39,13 @@ public class HomeController : Controller
     {
         if (id == null)
             return NotFound();
-        var exer = _context.Exers.FirstOrDefault(e => (e.ExerId == id));
+        var exer = _context.Assignments.FirstOrDefault(e => (e.AssignmentID == id));
         if (exer == null)
             return NotFound();
-        return View(exer);    
+        return View(exer);
     }
 
+    /*
     [HttpGet]
     public IActionResult Upload(int exerId)
     {
@@ -91,11 +92,11 @@ public class HomeController : Controller
 
         TempData["UploadSuccess"] = "Chưa chọn file hoặc file không hợp lệ!";
         return RedirectToAction("Details", new { id = exerId });
-    }
+    }*/
 
 
 
-    
+
     public IActionResult Privacy()
     {
         return View();

@@ -34,7 +34,7 @@ namespace final.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(tblUsers users)
+        public IActionResult Create(Users users)
         {
             if (ModelState.IsValid)
             {
@@ -43,20 +43,15 @@ namespace final.Areas.Admin.Controllers
                     Functions._Message = "Mật khẩu không được để trống.";
                     return RedirectToAction("Create", "Users");
                 }
-                var check = _context.Userss.Where(u => (u.UserName == users.UserName)).FirstOrDefault();
+                var check = _context.Userss.Where(u => (u.Username == users.Username)).FirstOrDefault();
                 if (check != null)
                 {
                     Functions._Message = "UserName already exists.";
                     return RedirectToAction("Create", "Users");
                 }
-                users.Roles = 1;
+                users.Role = 1;
                 users.Images = "default_avt.jpg";
-                users.T1 = "Pro Dev";
-                users.T2 = "Super Handsome";
-                users.T3 = "Death Gamer";
-                users.T4 = "God Tier";
-                users.Bgr = "915bcb30ab2d16c5cbcf2ccde09ebe44.jpg";
-                users.CreatedAt = DateTime.Now;
+                users.CreatedDate = DateTime.Now;
                 Functions._Message = string.Empty;
                 users.Passwords = Functions.MD5Password(users.Passwords);
                 _context.Userss.Add(users);
@@ -75,18 +70,13 @@ namespace final.Areas.Admin.Controllers
             return View(e);
         }
         [HttpPost]
-        public IActionResult Edit(tblUsers users)
+        public IActionResult Edit(Users users)
         {
             if (ModelState.IsValid)
             {
                 users.Roles = 1;
                 users.Images = "default_avt.jpg";
-                users.T1 = "Pro Dev";
-                users.T2 = "Super Handsome";
-                users.T3 = "Death Gamer";
-                users.T4 = "God Tier";
-                users.Bgr = "915bcb30ab2d16c5cbcf2ccde09ebe44.jpg";
-                users.CreatedAt = DateTime.Now;
+                users.CreatedDate = DateTime.Now;
                 _context.Userss.Update(users);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
@@ -108,7 +98,7 @@ namespace final.Areas.Admin.Controllers
             var delExer = _context.Userss.Find(id);
             if (delExer == null)
                 return NotFound();
-            _context.Userss.Remove(delExer);
+            _context.Users.Remove(delExer);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

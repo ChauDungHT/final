@@ -1,13 +1,13 @@
 @using final.Models
-@model IList<tblUsers>
+@model IList<Users>
 @using final.Utilities
 <section id="hero" class="hero section dark-background">
-    @foreach (var uu in Model.Where(m => m.UserId == @Functions._UserId))
+    @foreach (var uu in Model.Where(m => m.UserID == @Functions._UserID))
     {
         <img src="assets/img/@uu.Bgr" alt="" data-aos="fade-in" class="">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
-            <h2>@uu.FullName</h2>
+            <h2>@uu.Fullname</h2>
             <p>I'm <span class="typed"
                 data-typed-items="@uu.T1, @uu.T2, @uu.T3, @uu.T4">@uu.T1</span><span
                 class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span

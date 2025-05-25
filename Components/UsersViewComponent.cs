@@ -18,7 +18,7 @@ namespace final.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var listOfUsers = (from u in _context.Userss
-                                where (u.Roles == 1) && (u.Statuss == 1)
+                                where (u.Role == 1) && (u.IsActive == 1)
                                 select u).ToList();
             return await Task.FromResult((IViewComponentResult)View("Default", listOfUsers));
         }

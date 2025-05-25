@@ -13,10 +13,11 @@ namespace final.Models
         {
 
         }
-        public DbSet<tblUsers> Userss { get; set; }
-        public DbSet<tblEU> EUs { get; set; }
-        public DbSet<viewEU> vEUs { get; set; }
-        public DbSet<tblExer> Exers { get; set; }
-        public DbSet<AdminMenu> AdminMenus { get; set; }
+        public DbSet<Users> Userss { get; set; }
+        public DbSet<Categories> category { get; set; }
+        public DbSet<Assignments> assignment { get; set; }
+        public DbSet<Submissions> submission { get; set; }
+        public DbSet<PlagiarismResults> plagiarismResult { get; set; }
+        public DbSet<AIInteractions> AIInteraction { get; set; }
     }
 }

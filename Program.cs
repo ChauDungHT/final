@@ -10,8 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionStrings = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseMySql(connectionStrings, ServerVersion.AutoDetect(connectionStrings))
-);
+    options.UseMySql(connectionStrings, ServerVersion.AutoDetect(connectionStrings)));
 // Kết nối đến MySQL
 
 // Add services to the container.

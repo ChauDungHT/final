@@ -1,4 +1,4 @@
-@model final.Models.tblExer
+@model final.Models.Assignments
 <main class="main">
     <div class="page-title dark-background">
         <div class="container d-lg-flex justify-content-between align-items-center">
@@ -21,9 +21,9 @@
 
                 <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
                     <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
-                    <h3 style="font-family: Arial, Helvetica, sans-serif;">@Html.DisplayFor(model => model.ExerName)</h3>
+                    <h3 style="font-family: Arial, Helvetica, sans-serif;">@Html.DisplayFor(model => model.Title)</h3>
                     <p>
-                        @Html.DisplayFor(m => m.Contents)
+                        @Html.DisplayFor(m => m.Description)
                     </p>
                     @* <p>Debug Request: @Model.Request</p> *@
                     <ul>
@@ -51,10 +51,10 @@
                     </ul>
 
                     <p class="text-success">
-                        Create Date: @Html.DisplayFor(m => m.CreateAt)
+                        Create Date: @Html.DisplayFor(m => m.CreatedDate)
                     </p>
                     <p class="text-danger">
-                        Deadline : @Html.DisplayFor(m => m.Deadline)
+                        Deadline : @Html.DisplayFor(m => m.DueDate)
                     </p>
                 </div>
 
@@ -62,7 +62,8 @@
 
             <hr />
             <h5>Nộp bài PDF tại đây:</h5>
-            <form asp-controller="Home" asp-action="Upload" asp-route-exerId="@Model.ExerId" method="post" enctype="multipart/form-data">
+            <form asp-controller="Home" asp-action="Upload" asp-route-exerId="@Model.AssignmentID" method="post"
+                enctype="multipart/form-data">
                 <div class="mb-3">
                     <input type="file" name="pdfFile" class="form-control" accept=".pdf" required />
                 </div>

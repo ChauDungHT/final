@@ -24,28 +24,28 @@ namespace final.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(tblUsers users)
+        public IActionResult Index(Users users)
         {
             if (users == null)
             {
                 return NotFound();
             }
             string pw = Functions.MD5Password(users.Passwords);
-            var check = _context.Userss.Where(u => (u.UserName  == users.UserName) && (u.Passwords == pw)).FirstOrDefault();
+            var check = _context.Userss.Where(u => (u.Username  == users.Username) && (u.Password == pw)).FirstOrDefault();
             if (check == null)
             {
                 Functions._Message = "Invalid username and password.";
                 return RedirectToAction("Index", "Login");
             }
             Functions._Message = string.Empty;
-            Functions._UserId = check.UserId;
-            Functions._UserName = string.IsNullOrEmpty(check.UserName) ? string.Empty : check.UserName;
+            Functions._UserID = check.UserID;
+            Functions._Username = string.IsNullOrEmpty(check.Username) ? string.Empty : check.UserName;
             Functions._Email = string.IsNullOrEmpty(check.Email) ? string.Empty: check.Email;
-            if (check.Roles == 0)
+            if (check.Role == 0)
             {
                 return RedirectToAction("Index", "Home"); // Trang Admin trong Admin Area
             }
-            else if (check.Roles == 1)
+            else if (check.Role == 1)
             {
                 return Redirect("http://localhost:5262/"); // Trang client
             }
