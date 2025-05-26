@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yy9cgAnNF7Y=",
+  "dgSpecHash": "YtUq4W6uvL8=",
   "success": true,
-  "projectFilePath": "D:\\Web Programming\\final\\final.csproj",
+  "projectFilePath": "D:\\Web Programming\\main\\final\\final.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aceri\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\aceri\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -142,9 +142,9 @@
       "code": "NU1603",
       "level": "Warning",
       "message": "final depends on Microsoft.EntityFrameworkCore.Design (>= 9.0.0-preview.1) but Microsoft.EntityFrameworkCore.Design 9.0.0-preview.1 was not found. Microsoft.EntityFrameworkCore.Design 9.0.0-preview.1.24081.2 was resolved instead.",
-      "projectPath": "D:\\Web Programming\\final\\final.csproj",
+      "projectPath": "D:\\Web Programming\\main\\final\\final.csproj",
       "warningLevel": 1,
-      "filePath": "D:\\Web Programming\\final\\final.csproj",
+      "filePath": "D:\\Web Programming\\main\\final\\final.csproj",
       "libraryId": "Microsoft.EntityFrameworkCore.Design",
       "targetGraphs": [
         "net9.0"

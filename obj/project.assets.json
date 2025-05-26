@@ -6394,11 +6394,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Web Programming\\final\\final.csproj",
+      "projectUniqueName": "D:\\Web Programming\\main\\final\\final.csproj",
       "projectName": "final",
-      "projectPath": "D:\\Web Programming\\final\\final.csproj",
+      "projectPath": "D:\\Web Programming\\main\\final\\final.csproj",
       "packagesPath": "C:\\Users\\aceri\\.nuget\\packages\\",
-      "outputPath": "D:\\Web Programming\\final\\obj\\",
+      "outputPath": "D:\\Web Programming\\main\\final\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aceri\\AppData\\Roaming\\NuGet\\NuGet.Config"
