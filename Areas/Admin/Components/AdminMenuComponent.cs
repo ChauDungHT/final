@@ -17,9 +17,9 @@ namespace final.Areas.Admin.Components
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var mnlist = (from mn in _context.AdminMenus
-                            where (mn.IsActive == true)
-                            select mn).ToList();
+            var mnlist = _context.AdminMenus
+                     .Where(mn => mn.IsActive == true)
+                     .ToList();
             return await Task.FromResult((IViewComponentResult)View("Default", mnlist));
         }
     }

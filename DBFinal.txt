@@ -163,3 +163,6 @@ VALUES
 (8, 8, 'Tóm tắt nội dung chiến tranh', 'Chiến tranh do nhiều nguyên nhân', 'Summary'),
 (9, 9, 'So sánh acid', 'Acid mạnh hơn', 'Analysis'),
 (10, 10, 'Phân tích chuỗi DNA', 'Có 4 base', 'Analysis');
+
+
+https://chatgpt.com/share/6834c523-91a8-800b-a401-696613979cf9
