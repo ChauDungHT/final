@@ -166,3 +166,45 @@ VALUES
 
 
 https://chatgpt.com/share/6834c523-91a8-800b-a401-696613979cf9
+
+
+public async Task<IActionResult> Upload(int exerId, IFormFile pdfFile)
+    {
+        if (pdfFile != null && pdfFile.Length > 0)
+        {
+            var fileExt = Path.GetExtension(pdfFile.FileName).ToLower();
+            if (fileExt != ".pdf")
+            {
+                TempData["UploadSuccess"] = "Chỉ chấp nhận file PDF.";
+                return RedirectToAction("Details", new { id = exerId });
+            }
+
+            var fileName = $"exer_{exerId}_{DateTime.Now:yyyyMMddHHmmss}.pdf";
+            var relativePath = $"/uploads/{fileName}";
+            var fullPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads", fileName);
+
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                await pdfFile.CopyToAsync(stream);
+            }
+
+            // 👉 Lưu vào database
+            var eu = new tblEU
+            {
+                UID = 1, // Tạm thời hardcode, sau này lấy từ session / user login
+                EID = exerId,
+                FilePath = relativePath,
+                IsAcepted = false,
+                SubmitDate = DateTime.Now
+            };
+
+            _context.EUs.Add(eu);
+            await _context.SaveChangesAsync();
+
+            TempData["UploadSuccess"] = "Nộp bài thành công!";
+            return Redirect("/#services");
+        }
+
+        TempData["UploadSuccess"] = "Chưa chọn file hoặc file không hợp lệ!";
+        return RedirectToAction("Details", new { id = exerId });
+    }

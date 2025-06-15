@@ -25,6 +25,13 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult EditView(int exerId)
+    {
+        var exer = _context.Exers.FirstOrDefault(e => e.ExerId == exerId);
+        if (exer == null) return NotFound();
+        return View(exer);
+    }
+
     public IActionResult Logout()
     {
         Functions._UserId = 0;
@@ -42,13 +49,13 @@ public class HomeController : Controller
         var exer = _context.Exers.FirstOrDefault(e => (e.ExerId == id));
         if (exer == null)
             return NotFound();
-        return View(exer);    
+        return View(exer);
     }
 
     [HttpGet]
     public IActionResult Upload(int exerId)
     {
-        return View(exerId); 
+        return View(exerId);
     }
 
     [HttpPost]
@@ -71,22 +78,15 @@ public class HomeController : Controller
             {
                 await pdfFile.CopyToAsync(stream);
             }
-
-            // 👉 Lưu vào database
-            var eu = new tblEU
+            TempData["UploadSuccess"] = "Nộp bài thành công!";
+            var model = new viewEU
             {
-                UID = 1, // Tạm thời hardcode, sau này lấy từ session / user login
-                EID = exerId,
-                FilePath = relativePath,
-                IsAcepted = false,
-                SubmitDate = DateTime.Now
+                EUID = exerId,
+                FilePath = relativePath
             };
 
-            _context.EUs.Add(eu);
-            await _context.SaveChangesAsync();
+            return View("Edit", model);
 
-            TempData["UploadSuccess"] = "Nộp bài thành công!";
-            return Redirect("/#services");
         }
 
         TempData["UploadSuccess"] = "Chưa chọn file hoặc file không hợp lệ!";
@@ -95,7 +95,7 @@ public class HomeController : Controller
 
 
 
-    
+
     public IActionResult Privacy()
     {
         return View();

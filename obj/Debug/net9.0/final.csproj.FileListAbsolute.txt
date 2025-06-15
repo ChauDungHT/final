@@ -1102,3 +1102,7 @@ D:\Web Programming\main\final\obj\Debug\net9.0\refint\final.dll
 D:\Web Programming\main\final\obj\Debug\net9.0\final.pdb
 D:\Web Programming\main\final\obj\Debug\net9.0\final.genruntimeconfig.cache
 D:\Web Programming\main\final\obj\Debug\net9.0\ref\final.dll
+D:\Web Programming\main\final\obj\Debug\net9.0\rpswa.dswa.cache.json
+D:\Web Programming\main\final\obj\Debug\net9.0\rjimswa.dswa.cache.json
+D:\Web Programming\main\final\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+D:\Web Programming\main\final\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
