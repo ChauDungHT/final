@@ -1,0 +1,13 @@
+Lấy Google Search API Key
+Bước 1: Truy cập vào Google Cloud Console tại https://console.cloud.google.com/ và đăng nhập
+Bước 3: Vào phần "APIs & Services" và Tìm kiếm google-custom-search-api
+Bước 4: Nhận nút "Try this API"
+Bước 5: Nhấn vào "Nhận khóa" và chọn dự án, nhấn "Show Key"
+Bước 6: Sao chép khóa API và lưu lại để sử dụng
+
+Lấy cx-key:
+Bước 1: Truy cập vào https://programmablesearchengine.google.com/controlpanel/all
+Bước 2: Nhấn vào "Thêm"
+Bước 3: Đặ tên cho công cụ tìm kiếm là "www.google.com", lựa chọn "Tìm kiếm trên toàn web" và nhấn "Tạo"
+Bước 4: Nhấn vào "Tùy chỉnh"
+Bước 6: Sao chép cx-key và lưu lại để sử dụng

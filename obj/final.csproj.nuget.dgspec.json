@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/Users/suran/Workstations/Projects/NET/final/final.csproj": {}
+    "D:\\Web Programming\\main\\final\\final.csproj": {}
   },
   "projects": {
-    "/Users/suran/Workstations/Projects/NET/final/final.csproj": {
+    "D:\\Web Programming\\main\\final\\final.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/suran/Workstations/Projects/NET/final/final.csproj",
+        "projectUniqueName": "D:\\Web Programming\\main\\final\\final.csproj",
         "projectName": "final",
-        "projectPath": "/Users/suran/Workstations/Projects/NET/final/final.csproj",
-        "packagesPath": "/Users/suran/.nuget/packages/",
-        "outputPath": "/Users/suran/Workstations/Projects/NET/final/obj/",
+        "projectPath": "D:\\Web Programming\\main\\final\\final.csproj",
+        "packagesPath": "C:\\Users\\aceri\\.nuget\\packages\\",
+        "outputPath": "D:\\Web Programming\\main\\final\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/suran/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\aceri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -100,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
